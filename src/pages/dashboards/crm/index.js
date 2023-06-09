@@ -22,6 +22,8 @@ import CrmSalesOverview from 'src/views/dashboards/crm/CrmSalesOverview'
 import CrmMeetingSchedule from 'src/views/dashboards/crm/CrmMeetingSchedule'
 import CrmDeveloperMeetup from 'src/views/dashboards/crm/CrmDeveloperMeetup'
 import CrmActivityTimeline from 'src/views/dashboards/crm/CrmActivityTimeline'
+import ApexLineChart from 'src/views/charts/apex-charts/ApexLineChart'
+import ApexAreaChart from 'src/views/charts/apex-charts/ApexAreaChart'
 
 const data = [
   {
@@ -47,60 +49,19 @@ const CRMDashboard = () => {
   return (
     <ApexChartWrapper>
       <Grid container spacing={6}>
-        <Grid item xs={12} sm={6} md={3} sx={{ pt: theme => `${theme.spacing(12.25)} !important` }}>
-          <CardStatisticsCharacter data={data[0]} />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3} sx={{ pt: theme => `${theme.spacing(12.25)} !important` }}>
-          <CardStatisticsCharacter data={data[1]} />
-        </Grid>
-        <Grid item xs={12} md={6}>
+       
+        <Grid item xs={12} md={12}>
           <CrmTransactions />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <CrmTotalSales />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <CrmRevenueReport />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <CrmSalesOverview />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <CrmActivityTimeline />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Grid container spacing={6}>
-            <Grid item xs={12} sm={8}>
-              <CrmWeeklySales />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Grid container spacing={6}>
-                <Grid item xs={6} sm={12}>
-                  <CrmTotalGrowth />
-                </Grid>
-                <Grid item xs={6} sm={12}>
-                  <CardStatisticsVerticalComponent
-                    stats='862'
-                    trend='negative'
-                    trendNumber='-18%'
-                    title='New Project'
-                    subtitle='Yearly Project'
-                    icon={<Icon icon='mdi:briefcase-variant-outline' />}
-                  />
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <CrmUpgradePlan />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <CrmMeetingSchedule />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <CrmDeveloperMeetup />
-        </Grid>
+        <Grid item xs={12} md={12}>
+    <ApexLineChart />
+    </Grid>
+    <Grid item xs={12} md={12}>
+
+    <ApexAreaChart />
+ 
+    </Grid>
+        
       </Grid>
     </ApexChartWrapper>
   )
